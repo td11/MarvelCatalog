@@ -1,7 +1,19 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()]
+  envPrefix: ['REACT_'],
+  plugins: [
+    {
+      name: 'node-polyfills',
+      apply: 'build',
+      transform(code, id) {
+        if (/\.ts$/.test(id)) {
+          return `
+            import '@babel/preset-env/node';
+            ${code}
+          `;
+        }
+      },
+    },
+  ],
 })
