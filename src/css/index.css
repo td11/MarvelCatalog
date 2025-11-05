@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap');
+
+:root {
+  --color-bg-dark: #181828;
+  --color-bg-light: #fff;
+  --color-primary: #ED1D24;
+  --color-secondary: #222;
+  --color-text-dark: #fff;
+  --color-text-light: #222;
+}
+
+body, html, #root, .dark, .light {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark {
+  background: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+.light {
+  background: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

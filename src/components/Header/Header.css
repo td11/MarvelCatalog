@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.logo-img {
+  display: block;
+  width: 10%;
+  height: 48px;
+  margin-right: 1em;
+}
+
+.mode-toggle {
+  font-size: 1rem;
+  background: var(--color-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 0.4em 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mode-toggle:hover {
+  background-color: #b32026;
+}
