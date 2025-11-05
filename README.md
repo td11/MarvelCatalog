@@ -1,14 +1,15 @@
 # MarvelCatalog
 
-Proyecto formativo que muestra un catálogo de personajes Marvel con frontend en React + Vite y backend en Node.js/Express.
+Proyecto formativo que muestra un catálogo de personajes de Marvel.
+Incluye frontend en **React + Vite** y backend en **Node.js / Express**.
 
 ---
 
 ## Requisitos previos
 
-- Node.js (v16+ recomendado)
+- Node.js v16+ (recomendado)
 - npm o yarn
-- Acceso a terminal o consola
+- Terminal o consola
 
 ---
 
@@ -16,96 +17,109 @@ Proyecto formativo que muestra un catálogo de personajes Marvel con frontend en
 
 Clona el repositorio:
 
-git clone https://tu-repo-url.git
+```bash
+git clone git@github.com:td11/MarvelCatalog.git
 cd MarvelCatalog
-
+```
 
 ---
 
 ## Backend
 
-1. Entra a la carpeta backend (o donde esté el servidor):
+1. Entra en la carpeta del servidor:
 
+```bash
 cd backend
-
+```
 
 2. Instala dependencias:
 
+```bash
 npm install
+```
 
+3. Inicia el servidor (por defecto en http://localhost:3001):
 
-3. Arranca el backend (por defecto en puerto 3001):
-
+```bash
 npm run dev
-
+```
 
 ---
 
 ## Frontend
 
-1. Abre una nueva terminal y navega a la carpeta del frontend:
+1. Abre una nueva terminal y ve a la carpeta del frontend:
 
+```bash
 cd frontend
-
+```
 
 2. Instala dependencias:
 
+```bash
 npm install
+```
 
+3. Ejecuta el proyecto:
 
-3. Arranca el proyecto React + Vite:
-
+```bash
 npm run dev
+```
 
-
-4. Abre el navegador en la dirección que muestre (por defecto `http://localhost:5173`)
+4. Abre el navegador en la dirección indicada (por defecto http://localhost:5173)
 
 ---
 
 ## Variables de entorno
 
-No olvides configurar las variables de entorno si usas `.env`. Para desarrollo suele bastar con:
+Si usas `.env`, agrega en el frontend:
 
+```env
 VITE_API_BASE=http://localhost:3001
-
+```
 
 ---
 
 ## Uso
 
-- En la web puedes buscar personajes, navegar entre ellos con el carousel horizontal, y ver detalles en modal.
-- El backend provee los datos via API REST y sirve las imágenes desde `/images`
+- Busca y navega personajes mediante un carrusel horizontal.
+- Visualiza detalles de cada personaje en un modal.
+- El backend provee datos vía API REST y sirve imágenes desde `/images`.
 
 ---
 
-## Estructura básica del proyecto
+## Estructura del proyecto
 
+```
 MarvelCatalog/
 ├─ backend/
-│ ├─ index.js (Servidor Express y api)
-│ └─ marvelData.js (Datos)
+│  ├─ index.js
+│  └─ marvelData.js
+│
 ├─ frontend/
-│ ├─ src/
-│ │ ├─ components/
-│ │ ├─ hooks/
-│ │ ├─ css/
-│ │ ├─ App.tsx
-│ │ └─ main.tsx
-│ ├─ package.json
-│ └─ vite.config.js
+│  ├─ src/
+│  │  ├─ components/
+│  │  ├─ hooks/
+│  │  ├─ css/
+│  │  ├─ App.tsx
+│  │  └─ main.tsx
+│  ├─ package.json
+│  └─ vite.config.js
+│
 ├─ .gitignore
 └─ README.md
+```
 
 ---
 
-## Uso de Marvel api key (En un futuro)
+## Uso de Marvel API Key (futuro)
 
-Marvel public key
-d26310aa64bd024c14efa9c7d0dfa3f2
-
+```
+Public Key: d26310aa64bd024c14efa9c7d0dfa3f2
+```
 
 ---
 
 ## Licencia
 
-Proyecto formativo personal. No comercial.
+Proyecto formativo personal sin fines comerciales.
