@@ -1,0 +1,7 @@
+.footer {
+  background: var(--color-primary);
+  padding: 1rem 2rem;
+  color: #fff;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}

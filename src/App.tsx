@@ -1,38 +1,21 @@
-import React, { useEffect } from 'react'
-import { getComics } from './services/api'
-
+import React, { useState } from 'react';
+import { Header } from './components/Header/Header';
+import { MarvelCatalog } from './components/MarvelCatalog/MarvelCatalog';
+import { Footer } from './components/Footer/Footer';
+import './css/index.css';
 
 function App() {
-  const [comics, setComics] = React.useState([])
-
-  useEffect(() => {
-    async function loadComics() {
-      try {
-        const response = await getComics()
-        console.log(response)
-        setComics(response.data.data.results)
-      } catch (error) {
-        console.error('Error fetching comics:', error)
-      }
-    }
-
-    loadComics()
-  }, [])
-
-  useEffect(() => {
-    console.log(comics);
-  }, [comics]);
+  const [darkMode, setDarkMode] = useState<boolean>(true);
 
   return (
-    <div className="App">
-      <h1>Marvel Comic Catalog</h1>
-      <ul>
-        {comics.map((comic) => (
-          <li key={comic.id}>{comic.title}</li>
-        ))}
-      </ul>
+    <div className={darkMode ? "dark" : "light"}>
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+      <main className="main-content">
+        <MarvelCatalog />
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
