@@ -10,10 +10,9 @@ export function MarvelCatalog() {
   const [characters, setCharacters] = useState<MarvelCharacter[]>([]);
   const [selectedCharacter, setSelectedCharacter] = useState<MarvelCharacter | null>(null);
   const loadingRef = useRef(false);
-  const limit = 6; // Haz los cards más grandes y muestra más en cada scroll
+  const limit = 6;
   const carouselContainerRef = useRef<HTMLDivElement>(null);
 
-  // Fetch inicial y por scroll
   const { characters: fetched, loading } = useMarvelCharacters(search, limit, page * limit);
 
   useEffect(() => {
@@ -25,14 +24,12 @@ export function MarvelCatalog() {
     loadingRef.current = false;
   }, [fetched, page]);
 
-  // Infinite scroll event en carousel-container
   useEffect(() => {
     const container = carouselContainerRef.current;
     if (!container) return;
 
     const handleScroll = () => {
       if (loadingRef.current) return;
-      // Carga más cuando el usuario está al final
       if (container.scrollLeft + container.offsetWidth >= container.scrollWidth - 30) {
         loadingRef.current = true;
         setPage(prev => prev + 1);
@@ -47,11 +44,21 @@ export function MarvelCatalog() {
     setPage(0);
   };
 
-  // URL dinámica para imagen
-  const getImgSrc = (char: MarvelCharacter) =>
-    char.comicCover
-      ? `${window.location.protocol}//${window.location.hostname === '127.0.0.1' ? 'localhost' : window.location.hostname}:3001${char.comicCover}`
+  // Usa la variable de entorno si está definida, sino usa lógica local
+  const API_BASE = import.meta.env.VITE_API_BASE;
+
+  const getImgSrc = (char: MarvelCharacter) => {
+    if (!API_BASE) {
+      // Local
+      return char.comicCover
+        ? `${window.location.protocol}//${window.location.hostname === '127.0.0.1' ? 'localhost' : window.location.hostname}:3001${char.comicCover}`
+        : `${char.thumbnail.path}.${char.thumbnail.extension}`;
+    }
+    // Producción
+    return char.comicCover
+      ? `${API_BASE}${char.comicCover}`
       : `${char.thumbnail.path}.${char.thumbnail.extension}`;
+  };
 
   return (
     <div className="main-content">
@@ -80,7 +87,6 @@ export function MarvelCatalog() {
                       <MarvelImage src={imgSrc} alt={char.name} width={180} />
                       <h3>{char.name}</h3>
                       <p>
-                        {/* {showMore ? desc.slice(0, 98) + '...' : desc} */}
                         {showMore && (
                           <button className="show-more-btn" onClick={e => { e.stopPropagation(); setSelectedCharacter(char); }}>
                             Mostrar más
