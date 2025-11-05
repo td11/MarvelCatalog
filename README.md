@@ -5,7 +5,7 @@ Incluye frontend en **React + Vite** y backend en **Node.js / Express**.
 
 ---
 
-## Requisitos previos
+## ✅ Requisitos previos
 
 - Node.js v16+ (recomendado)
 - npm o yarn
@@ -13,7 +13,7 @@ Incluye frontend en **React + Vite** y backend en **Node.js / Express**.
 
 ---
 
-## Instalación
+## 🚀 Instalación
 
 Clona el repositorio:
 
@@ -24,7 +24,7 @@ cd MarvelCatalog
 
 ---
 
-## Backend
+## 🖥️ Backend
 
 1. Entra en la carpeta del servidor:
 
@@ -46,7 +46,7 @@ npm run dev
 
 ---
 
-## Frontend
+## 🎨 Frontend
 
 1. Abre una nueva terminal y ve a la carpeta del frontend:
 
@@ -70,7 +70,7 @@ npm run dev
 
 ---
 
-## Variables de entorno
+## 🔧 Variables de entorno
 
 Si usas `.env`, agrega en el frontend:
 
@@ -80,7 +80,7 @@ VITE_API_BASE=http://localhost:3001
 
 ---
 
-## Uso
+## 🧭 Uso
 
 - Busca y navega personajes mediante un carrusel horizontal.
 - Visualiza detalles de cada personaje en un modal.
@@ -88,7 +88,7 @@ VITE_API_BASE=http://localhost:3001
 
 ---
 
-## Estructura del proyecto
+## 📂 Estructura del proyecto
 
 ```
 MarvelCatalog/
@@ -112,7 +112,7 @@ MarvelCatalog/
 
 ---
 
-## Uso de Marvel API Key (futuro)
+## 🗝️ Uso de Marvel API Key (futuro)
 
 ```
 Public Key: d26310aa64bd024c14efa9c7d0dfa3f2
@@ -120,6 +120,6 @@ Public Key: d26310aa64bd024c14efa9c7d0dfa3f2
 
 ---
 
-## Licencia
+## 📄 Licencia
 
 Proyecto formativo personal sin fines comerciales.
