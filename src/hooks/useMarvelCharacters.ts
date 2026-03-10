@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-const BASE_URL = "http://localhost:3001/api/characters";
+// read the API endpoint from Vite env var, with a sensible default for local dev
+const BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3001/api/characters";
 
 export interface MarvelCharacter {
   id: number;
