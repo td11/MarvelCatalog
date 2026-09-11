@@ -1,7 +1,11 @@
 import React, { useState, useMemo } from "react";
 import { useMarvelCharacters, MarvelCharacter, MarvelTeam } from "../../hooks/useMarvelCharacters";
+import { MARVEL_CHARACTERS_DATA } from "../../data/marvelCharacters";
+import { MARVEL_SAGAS } from "../../data/marvelSagas";
 import { MarvelImage } from "../MarvelImage/MarvelImage";
 import { CharacterModal } from "../CharacterModal/CharacterModal";
+import { SagasExplorer } from "../SagasExplorer/SagasExplorer";
+import { VersusArena } from "../VersusArena/VersusArena";
 import {
   Search,
   X,
@@ -14,7 +18,10 @@ import {
   Zap,
   Sword,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Users,
+  BookOpen,
+  Swords
 } from "lucide-react";
 import './MarvelCatalog.css';
 
@@ -32,6 +39,8 @@ const TEAMS_FILTER: { id: MarvelTeam | 'all'; label: string; icon: string }[] = 
   { id: 'avengers', label: 'Vengadores', icon: '🛡️' },
   { id: 'spider-verse', label: 'Spider-Verse', icon: '🕷️' },
   { id: 'x-men', label: 'X-Men', icon: '🧬' },
+  { id: 'fantastic-four', label: '4 Fantásticos', icon: '4️⃣' },
+  { id: 'guardians', label: 'Guardianes', icon: '🚀' },
   { id: 'cosmic', label: 'Cósmico', icon: '🌌' },
   { id: 'villains', label: 'Villanos', icon: '😈' },
   { id: 'street', label: 'Street Level', icon: '🥊' },
@@ -48,9 +57,12 @@ export function MarvelCatalog({
   const [sortBy, setSortBy] = useState<SortOption>('default');
   const [viewMode, setViewMode] = useState<'grid' | 'strip'>('grid');
   const [selectedCharacter, setSelectedCharacter] = useState<MarvelCharacter | null>(null);
+  const [activeTab, setActiveTab] = useState<'characters' | 'sagas' | 'versus'>('characters');
+  const [arenaFighterA, setArenaFighterA] = useState<MarvelCharacter | undefined>(undefined);
+  const [arenaFighterB, setArenaFighterB] = useState<MarvelCharacter | undefined>(undefined);
 
   // Consulta el catálogo mediante hook resiliente (soporta backend y offline local)
-  const { characters: baseCharacters, loading } = useMarvelCharacters(search, selectedTeam, 50, 0);
+  const { characters: baseCharacters, loading } = useMarvelCharacters(search, selectedTeam, 100, 0);
 
   // Filtrado reactivo adicional para favoritos y ordenación
   const displayedCharacters = useMemo(() => {
@@ -115,12 +127,12 @@ export function MarvelCatalog({
           {/* Métricas destacadas del Hero */}
           <div className="marvel-hero-stats">
             <div className="hero-stat-card">
-              <span className="stat-number">16</span>
+              <span className="stat-number">{MARVEL_CHARACTERS_DATA.length}</span>
               <span className="stat-label">Héroes & Villanos</span>
             </div>
             <div className="hero-stat-card">
-              <span className="stat-number">6</span>
-              <span className="stat-label">Power Grids</span>
+              <span className="stat-number">{MARVEL_SAGAS.length}</span>
+              <span className="stat-label">Sagas Canónicas</span>
             </div>
             <div className="hero-stat-card">
               <span className="stat-number">{favorites.length}</span>
@@ -130,8 +142,38 @@ export function MarvelCatalog({
         </div>
       </section>
 
-      {/* Barra de Control, Búsqueda y Filtros */}
-      <section className="marvel-control-panel">
+      {/* Selector de Vistas / Pestañas */}
+      <nav className="marvel-view-tabs" aria-label="Secciones del catálogo">
+        <button
+          type="button"
+          className={`view-tab-btn ${activeTab === 'characters' ? 'active' : ''}`}
+          onClick={() => setActiveTab('characters')}
+        >
+          <Users size={16} />
+          <span>Personajes ({MARVEL_CHARACTERS_DATA.length})</span>
+        </button>
+        <button
+          type="button"
+          className={`view-tab-btn ${activeTab === 'sagas' ? 'active' : ''}`}
+          onClick={() => setActiveTab('sagas')}
+        >
+          <BookOpen size={16} />
+          <span>Sagas & Cómics ({MARVEL_SAGAS.length})</span>
+        </button>
+        <button
+          type="button"
+          className={`view-tab-btn ${activeTab === 'versus' ? 'active' : ''}`}
+          onClick={() => setActiveTab('versus')}
+        >
+          <Swords size={16} />
+          <span>Versus Arena</span>
+        </button>
+      </nav>
+
+      {activeTab === 'characters' && (
+        <>
+          {/* Barra de Control, Búsqueda y Filtros */}
+          <section className="marvel-control-panel">
         <div className="marvel-control-inner">
           {/* Fila Superior: Buscador y Vistas */}
           <div className="marvel-search-row">
@@ -360,6 +402,27 @@ export function MarvelCatalog({
           </div>
         )}
       </main>
+        </>
+      )}
+
+      {/* Vista de Sagas & Cómics */}
+      {activeTab === 'sagas' && (
+        <SagasExplorer
+          onSelectCharacterName={(charName) => {
+            setSearch(charName);
+            setSelectedTeam('all');
+            setActiveTab('characters');
+          }}
+        />
+      )}
+
+      {/* Vista de Versus Arena */}
+      {activeTab === 'versus' && (
+        <VersusArena
+          initialContenderA={arenaFighterA}
+          initialContenderB={arenaFighterB}
+        />
+      )}
 
       {/* Modal de Detalle Completo */}
       {selectedCharacter && (
@@ -369,6 +432,10 @@ export function MarvelCatalog({
           isFavorite={favorites.includes(selectedCharacter.id)}
           onToggleFavorite={onToggleFavorite}
           onClose={() => setSelectedCharacter(null)}
+          onSelectForArena={(char) => {
+            setArenaFighterA(char);
+            setActiveTab('versus');
+          }}
         />
       )}
     </div>

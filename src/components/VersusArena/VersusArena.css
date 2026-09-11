@@ -1,0 +1,474 @@
+.versus-arena-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.versus-hero-banner {
+  background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.15) 0%, rgba(13, 14, 20, 0.95) 75%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.versus-banner-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #fbbf24;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+.versus-headline {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.versus-subheadline {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Presets */
+.versus-presets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.versus-presets-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fbbf24;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.versus-presets-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.versus-preset-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.versus-preset-btn:hover {
+  background: rgba(237, 29, 36, 0.2);
+  border-color: #ED1D24;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Selector Bar */
+.versus-selectors-bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(17, 20, 29, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.versus-select-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.versus-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+}
+
+.versus-select {
+  background: rgba(10, 12, 18, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.versus-select:focus {
+  border-color: #ED1D24;
+  box-shadow: 0 0 14px rgba(237, 29, 36, 0.35);
+}
+
+.versus-vs-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fbbf24;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  padding: 0 1rem;
+}
+
+/* Clash Container */
+.versus-clash-container {
+  display: grid;
+  grid-template-columns: 320px 1fr 320px;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.fighter-card {
+  background: rgba(17, 20, 29, 0.9);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease;
+}
+
+.fighter-card.fighter-a {
+  border-color: rgba(237, 29, 36, 0.35);
+}
+
+.fighter-card.fighter-b {
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+.fighter-badge {
+  padding: 0.45rem 1rem;
+  font-family: 'Anton', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+.fighter-a .fighter-badge {
+  background: rgba(237, 29, 36, 0.25);
+  color: #ff6b6b;
+  border-bottom: 1px solid rgba(237, 29, 36, 0.3);
+}
+
+.fighter-b .fighter-badge {
+  background: rgba(59, 130, 246, 0.25);
+  color: #60a5fa;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.fighter-img-frame {
+  position: relative;
+  aspect-ratio: 2/3;
+  background: #000;
+  overflow: hidden;
+}
+
+.fighter-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fighter-prob-tag {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.fighter-meta {
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.fighter-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.03em;
+}
+
+.fighter-sub {
+  color: #94a3b8;
+  font-size: 0.82rem;
+  margin: 0 0 0.75rem;
+}
+
+.fighter-score {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Centro de Acciones */
+.versus-center-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.versus-odds-meter {
+  width: 100%;
+}
+
+.odds-label-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.odds-bar-track {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+  display: flex;
+}
+
+.odds-bar-fill-a {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  transition: width 0.4s ease;
+}
+
+.odds-bar-fill-b {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  transition: width 0.4s ease;
+}
+
+.versus-simulate-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, #ED1D24 0%, #b91c1c 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(237, 29, 36, 0.45);
+  transition: all 0.25s ease;
+}
+
+.versus-simulate-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(237, 29, 36, 0.65);
+}
+
+.versus-simulate-btn.simulating {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.versus-result-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  color: #fbbf24;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+
+/* Comparativa de Estadísticas */
+.versus-stats-comparison {
+  background: rgba(17, 20, 29, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.comparison-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+  color: #fff;
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+}
+
+.comparison-table {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: 1fr 140px 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.comp-stat-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.comp-icon {
+  font-size: 1.1rem;
+}
+
+.comp-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.comp-val {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.comp-val.winner {
+  color: #fbbf24;
+  font-weight: 800;
+}
+
+.comp-val-a {
+  justify-content: flex-end;
+}
+
+.comp-val-b {
+  justify-content: flex-start;
+}
+
+.comp-bar-wrapper {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 200px;
+}
+
+.comp-bar-a {
+  height: 100%;
+  background: #ef4444;
+  border-radius: 9999px;
+}
+
+.comp-bar-b {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 9999px;
+}
+
+/* Reporte Táctico */
+.versus-tactical-report {
+  background: rgba(13, 14, 20, 0.95);
+  border: 1px solid rgba(237, 29, 36, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.report-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.report-header h4 {
+  margin: 0;
+  font-family: 'Anton', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: #ef4444;
+}
+
+.report-content {
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .versus-selectors-bar {
+    grid-template-columns: 1fr;
+  }
+  .versus-vs-badge {
+    padding: 0.5rem 0;
+  }
+  .versus-clash-container {
+    grid-template-columns: 1fr;
+  }
+  .comparison-row {
+    grid-template-columns: 1fr 100px 1fr;
+  }
+}
