@@ -1,7 +1,112 @@
-.footer {
-  background: var(--color-primary);
-  padding: 1rem 2rem;
-  color: #fff;
-  text-align: center;
+.marvel-footer {
+  background: #0D0D14;
+  border-top: 2px solid #ED1D24;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  color: #CBD5E1;
   font-family: 'Roboto', sans-serif;
+  margin-top: 3rem;
 }
+
+.light .marvel-footer {
+  background: #F8FAFC;
+  border-top-color: #ED1D24;
+  color: #475569;
+}
+
+.marvel-footer-inner {
+  max-width: 1400px;
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.marvel-footer-brand {
+  max-width: 600px;
+}
+
+.footer-pill {
+  display: inline-block;
+  font-family: 'Anton', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: #FFD700;
+  background: rgba(237, 29, 36, 0.15);
+  border: 1px solid rgba(237, 29, 36, 0.3);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
+}
+
+.footer-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #94A3B8;
+}
+
+.light .footer-desc {
+  color: #64748B;
+}
+
+.marvel-footer-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #F8FAFC;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.light .footer-link {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  color: #0F172A;
+}
+
+.footer-link:hover {
+  background: rgba(237, 29, 36, 0.2);
+  border-color: #ED1D24;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.marvel-footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.25rem;
+  text-align: center;
+}
+
+.light .marvel-footer-bottom {
+  border-color: #E2E8F0;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #64748B;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .marvel-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
