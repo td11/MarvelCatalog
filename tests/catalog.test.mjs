@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import path from 'node:path';
 
 test('Marvel characters data integrity', () => {
   const content = fs.readFileSync('src/data/marvelCharacters.ts', 'utf8');
@@ -46,5 +47,30 @@ test('Thanos and Venom have unique and valid local covers', () => {
   assert.ok(fs.existsSync('public/images/thanos-cover.png'), 'thanos-cover.png exists on disk');
   assert.ok(fs.existsSync('public/images/venom-cover.png'), 'venom-cover.png exists on disk');
 });
+test('50 canonical Marvel characters and cover assets integrity', () => {
+  const content = fs.readFileSync('src/data/marvelCharacters.ts', 'utf8');
+  const idMatches = content.match(/id:\s*\d+/g);
+  assert.equal(idMatches?.length, 50, 'Catalog contains exactly 50 canonical characters');
 
+  // Verify all comic covers exist on disk
+  const coverMatches = content.match(/comicCover:\s*"([^"]+)"/g) || [];
+  assert.equal(coverMatches.length, 50, 'All 50 characters have comicCover defined');
 
+  for (const match of coverMatches) {
+    const relativePath = match.replace(/comicCover:\s*"/, '').replace('"', '');
+    const diskPath = path.join('public', relativePath);
+    assert.ok(fs.existsSync(diskPath), `Cover image exists on disk: ${diskPath}`);
+  }
+});
+
+test('Marvel sagas dataset integrity', () => {
+  const content = fs.readFileSync('src/data/marvelSagas.ts', 'utf8');
+  assert.ok(content.includes('infinity-gauntlet'), 'Infinity Gauntlet present');
+  assert.ok(content.includes('civil-war'), 'Civil War present');
+  assert.ok(content.includes('secret-wars'), 'Secret Wars present');
+  assert.ok(content.includes('planet-hulk'), 'Planet Hulk present');
+  assert.ok(content.includes('house-of-m'), 'House of M present');
+  assert.ok(content.includes('dark-phoenix'), 'Dark Phoenix present');
+  assert.ok(content.includes('spider-verse'), 'Spider-Verse present');
+  assert.ok(content.includes('born-again'), 'Born Again present');
+});
