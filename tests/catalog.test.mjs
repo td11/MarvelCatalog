@@ -33,3 +33,9 @@ test('Vercel configuration exists and has rewrite', () => {
   assert.ok(Array.isArray(vercelConfig.rewrites), 'Rewrites array exists');
   assert.equal(vercelConfig.rewrites[0].destination, '/index.html');
 });
+
+test('Vite config base is root for Vercel', () => {
+  const viteConfig = fs.readFileSync('vite.config.ts', 'utf8');
+  assert.ok(viteConfig.includes("base: '/'"), "Vite base must be '/' to prevent blank page on root domains");
+});
+
