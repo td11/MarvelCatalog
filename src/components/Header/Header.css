@@ -1,31 +1,147 @@
-.header {
+.marvel-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(180deg, rgba(17, 17, 24, 0.98) 0%, rgba(20, 20, 30, 0.95) 100%);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid #ED1D24;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.light .marvel-header {
+  background: linear-gradient(180deg, #ED1D24 0%, #C41217 100%);
+  border-bottom: 2px solid #111;
+}
+
+.marvel-header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
-  background: var(--color-primary);
-  color: #fff;
-  font-size: 1.5rem;
+  gap: 1rem;
 }
 
-.logo-img {
-  display: block;
-  width: 10%;
-  height: 48px;
-  margin-right: 1em;
+.marvel-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
 }
 
-.mode-toggle {
-  font-size: 1rem;
-  background: var(--color-secondary);
-  color: #fff;
-  border: none;
-  border-radius: 25px;
-  padding: 0.4em 1em;
+.marvel-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(237, 29, 36, 0.5));
+  transition: transform 0.2s ease;
+}
+
+.marvel-logo-img:hover {
+  transform: scale(1.04);
+}
+
+.marvel-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.marvel-brand-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #FFD700;
+  text-transform: uppercase;
+  font-family: 'Anton', sans-serif;
+}
+
+.marvel-brand-sub {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #E2E8F0;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+}
+
+.marvel-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.marvel-header-fav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #F8FAFC;
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
 }
 
-.mode-toggle:hover {
-  background-color: #b32026;
+.marvel-header-fav-btn:hover {
+  background: rgba(237, 29, 36, 0.2);
+  border-color: #ED1D24;
+  transform: translateY(-1px);
 }
+
+.marvel-header-fav-btn.active {
+  background: #ED1D24;
+  border-color: #ED1D24;
+  color: #FFF;
+  box-shadow: 0 0 12px rgba(237, 29, 36, 0.6);
+}
+
+.fav-count-badge {
+  background: rgba(0, 0, 0, 0.4);
+  color: #FFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+  min-width: 18px;
+  text-align: center;
+}
+
+.marvel-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #F8FAFC;
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.marvel-mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .marvel-brand-text {
+    display: none;
+  }
+  .fav-label, .mode-label {
+    display: none;
+  }
+  .marvel-header {
+    padding: 0.6rem 1rem;
+  }
+}
+
