@@ -1,15 +1,17 @@
 {
   "name": "marvelcatalog",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "test": "node --test tests/catalog.test.mjs",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "lucide-react": "^1.44.0",
     "md5": "^2.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

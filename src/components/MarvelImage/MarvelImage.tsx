@@ -1,23 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface Props {
   src: string;
   alt: string;
-  width: number;
+  className?: string;
+  width?: number | string;
+  height?: number | string;
+  style?: React.CSSProperties;
 }
 
-export function MarvelImage({ src, alt, width }: Props) {
-  const genericImage = "/images/generic_marvel_image.jpg"; // Asume que tienes esta imagen en public
+export function MarvelImage({ src, alt, className = "", width, height, style }: Props) {
+  const genericImage = "/images/generic_marvel_image.jpg";
+  const [imgSrc, setImgSrc] = useState<string>(src);
 
-  const [imgSrc, setImgSrc] = useState(src);
-  const [error, setError] = useState(false);
+  useEffect(() => {
+    setImgSrc(src);
+  }, [src]);
 
-  const onError = () => {
-    if (!error) {
-      setImgSrc(genericImage);
-      setError(true);
-    }
-  };
-
-  return <img src={imgSrc} alt={alt} width={width} onError={onError} />;
+  return (
+    <img
+      src={imgSrc}
+      alt={alt}
+      className={className}
+      width={width}
+      height={height}
+      style={style}
+      loading="lazy"
+      onError={() => {
+        if (imgSrc !== genericImage) {
+          setImgSrc(genericImage);
+        }
+      }}
+    />
+  );
 }
+
