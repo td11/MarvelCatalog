@@ -234,7 +234,7 @@ export const MARVEL_CHARACTERS_DATA: MarvelCharacter[] = [
       path: "https://i.annihil.us/u/prod/marvel/i/mg/5/f0/5261a85a501fe",
       extension: "jpg"
     },
-    comicCover: "/images/generic_marvel_image.jpg",
+    comicCover: "/images/doctorstrange-cover.png",
     notableComics: ["A Separate Reality (1974)", "The Oath (2006)", "Damnation (2018)"],
     mcuAppearances: ["Doctor Strange (2016)", "Avengers: Infinity War (2018)", "Multiverse of Madness (2022)"],
   },
@@ -260,7 +260,7 @@ export const MARVEL_CHARACTERS_DATA: MarvelCharacter[] = [
       path: "https://i.annihil.us/u/prod/marvel/i/mg/6/70/5261a7d7c394b",
       extension: "jpg"
     },
-    comicCover: "/images/generic_marvel_image.jpg",
+    comicCover: "/images/scarletwitch-cover.png",
     notableComics: ["House of M (2005)", "Avengers Disassembled (2004)", "The Vision and the Scarlet Witch"],
     mcuAppearances: ["Avengers: Age of Ultron (2015)", "WandaVision (2021)", "Multiverse of Madness (2022)"],
   },
@@ -286,7 +286,7 @@ export const MARVEL_CHARACTERS_DATA: MarvelCharacter[] = [
       path: "https://i.annihil.us/u/prod/marvel/i/mg/6/60/5261a80a67e7d",
       extension: "jpg"
     },
-    comicCover: "/images/generic_marvel_image.jpg",
+    comicCover: "/images/blackpanther-cover.png",
     notableComics: ["Panther's Rage (1973)", "Enemy of the State (1998)", "A Nation Under Our Feet (2016)"],
     mcuAppearances: ["Captain America: Civil War (2016)", "Black Panther (2018)", "Avengers: Endgame (2019)"],
   },
@@ -312,7 +312,7 @@ export const MARVEL_CHARACTERS_DATA: MarvelCharacter[] = [
       path: "https://i.annihil.us/u/prod/marvel/i/mg/9/90/5261a86cacb99",
       extension: "jpg"
     },
-    comicCover: "/images/generic_marvel_image.jpg",
+    comicCover: "/images/deadpool-cover.png",
     notableComics: ["Deadpool Kills the Marvel Universe (2012)", "The Good, The Bad and The Ugly (2013)"],
     mcuAppearances: ["Deadpool (2016)", "Deadpool 2 (2018)", "Deadpool & Wolverine (2024)"],
   },
@@ -338,7 +338,7 @@ export const MARVEL_CHARACTERS_DATA: MarvelCharacter[] = [
       path: "https://i.annihil.us/u/prod/marvel/i/mg/6/40/5261a80a67e7d",
       extension: "jpg"
     },
-    comicCover: "/images/generic_marvel_image.jpg",
+    comicCover: "/images/thanos-cover.png",
     notableComics: ["The Infinity Gauntlet (1991)", "Thanos Quest (1990)", "Infinity (2013)"],
     mcuAppearances: ["Avengers: Infinity War (2018)", "Avengers: Endgame (2019)"],
   },
@@ -364,7 +364,7 @@ export const MARVEL_CHARACTERS_DATA: MarvelCharacter[] = [
       path: "https://i.annihil.us/u/prod/marvel/i/mg/d/90/526547f50928e",
       extension: "jpg"
     },
-    comicCover: "/images/generic_marvel_image.jpg",
+    comicCover: "/images/loki-cover.png",
     notableComics: ["Loki: Agent of Asgard (2014)", "The Trials of Loki", "Siege (2010)"],
     mcuAppearances: ["The Avengers (2012)", "Thor: Ragnarok (2017)", "Loki Serie Disney+ (2021-2023)"],
   },
@@ -390,7 +390,7 @@ export const MARVEL_CHARACTERS_DATA: MarvelCharacter[] = [
       path: "https://i.annihil.us/u/prod/marvel/i/mg/6/80/5269608c1be7a",
       extension: "jpg"
     },
-    comicCover: "/images/generic_marvel_image.jpg",
+    comicCover: "/images/captainmarvel-cover.png",
     notableComics: ["In Pursuit of Flight (2012)", "Civil War II (2016)", "The Life of Captain Marvel"],
     mcuAppearances: ["Captain Marvel (2019)", "Avengers: Endgame (2019)", "The Marvels (2023)"],
   },
@@ -416,7 +416,7 @@ export const MARVEL_CHARACTERS_DATA: MarvelCharacter[] = [
       path: "https://i.annihil.us/u/prod/marvel/i/mg/d/50/50febb79985ee",
       extension: "jpg"
     },
-    comicCover: "/images/generic_marvel_image.jpg",
+    comicCover: "/images/daredevil-cover.png",
     notableComics: ["Born Again (1986)", "The Man Without Fear (1993)", "Guardian Devil (1998)"],
     mcuAppearances: ["Daredevil Serie Netflix (2015-2018)", "Spider-Man: No Way Home (2021)", "Daredevil: Born Again (2025)"],
   },
@@ -442,7 +442,7 @@ export const MARVEL_CHARACTERS_DATA: MarvelCharacter[] = [
       path: "https://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0",
       extension: "jpg"
     },
-    comicCover: "/images/generic_marvel_image.jpg",
+    comicCover: "/images/venom-cover.png",
     notableComics: ["Lethal Protector (1993)", "Donny Cates' Venom Run (2018)", "King in Black (2020)"],
     mcuAppearances: ["Venom (2018)", "Venom: Let There Be Carnage (2021)", "The Last Dance (2024)"],
   },

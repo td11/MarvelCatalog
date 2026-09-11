@@ -39,3 +39,12 @@ test('Vite config base is root for Vercel', () => {
   assert.ok(viteConfig.includes("base: '/'"), "Vite base must be '/' to prevent blank page on root domains");
 });
 
+test('Thanos and Venom have unique and valid local covers', () => {
+  const content = fs.readFileSync('src/data/marvelCharacters.ts', 'utf8');
+  assert.ok(content.includes('comicCover: "/images/thanos-cover.png"'), 'Thanos has thanos-cover.png');
+  assert.ok(content.includes('comicCover: "/images/venom-cover.png"'), 'Venom has venom-cover.png');
+  assert.ok(fs.existsSync('public/images/thanos-cover.png'), 'thanos-cover.png exists on disk');
+  assert.ok(fs.existsSync('public/images/venom-cover.png'), 'venom-cover.png exists on disk');
+});
+
+
