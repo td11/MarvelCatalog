@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { MarvelCharacter } from "../../hooks/useMarvelCharacters";
-import { X, Shield, Zap, BookOpen, Film, Heart, Sparkles, Award } from "lucide-react";
+import { X, Shield, Zap, BookOpen, Film, Heart, Sparkles, Award, Share2, Check, Swords } from "lucide-react";
 import './CharacterModal.css';
 
 interface CharacterModalProps {
@@ -9,6 +9,7 @@ interface CharacterModalProps {
   isFavorite: boolean;
   onToggleFavorite: (id: number) => void;
   onClose: () => void;
+  onSelectForArena?: (character: MarvelCharacter) => void;
 }
 
 export const CharacterModal: React.FC<CharacterModalProps> = ({
@@ -17,7 +18,30 @@ export const CharacterModal: React.FC<CharacterModalProps> = ({
   isFavorite,
   onToggleFavorite,
   onClose,
+  onSelectForArena,
 }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = async () => {
+    const shareData = {
+      title: `${character.name} | Marvel Universe Archive`,
+      text: `Descubre la ficha clasificada de ${character.name} (${character.realName || character.name}) con su Power Grid oficial y cómics clave.`,
+      url: window.location.href,
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        return;
+      } catch {
+        // Fallback a portapapeles si el usuario canceló
+      }
+    }
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(`${shareData.title}\n${shareData.text}\n${shareData.url}`);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
+  };
   // Cerrar modal al presionar Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -86,6 +110,33 @@ export const CharacterModal: React.FC<CharacterModalProps> = ({
               <Heart size={18} className={isFavorite ? 'fill-current' : ''} />
               <span>{isFavorite ? 'En tus Favoritos' : 'Añadir a Favoritos'}</span>
             </button>
+
+            {/* Botón Compartir Ficha */}
+            <button
+              type="button"
+              onClick={handleShare}
+              className={`comic-modal-share-btn ${copied ? 'copied-active' : ''}`}
+              title="Compartir o copiar enlace de esta ficha"
+            >
+              {copied ? <Check size={18} className="text-green-400" /> : <Share2 size={18} />}
+              <span>{copied ? '¡Ficha Copiada!' : 'Compartir Ficha'}</span>
+            </button>
+
+            {/* Llevar a Versus Arena */}
+            {onSelectForArena && (
+              <button
+                type="button"
+                onClick={() => {
+                  onSelectForArena(character);
+                  onClose();
+                }}
+                className="comic-modal-arena-btn"
+                title="Llevar a la arena de combate 1 vs 1"
+              >
+                <Swords size={18} />
+                <span>Llevar a Versus Arena</span>
+              </button>
+            )}
           </div>
 
           {/* Columna Derecha: Contenido y Estadísticas */}
